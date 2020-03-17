@@ -56,7 +56,6 @@ class _BannerState extends State<Banner> {
 
   void movieInfo() async {
     setLoadingState(true);
-    print(addHostAndApiKey(urls['movieVideos'](widget.data.id)));
     http.Response response = await http.get(
       addHostAndApiKey(urls['movieVideos'](widget.data.id)),
     );

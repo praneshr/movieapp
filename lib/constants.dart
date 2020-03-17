@@ -18,6 +18,7 @@ enum Screens {
   TV,
   ARTIST,
   SEARCH,
+  GENRE,
 }
 
 final Map<ImageTypes, String> lowResImageSize = {
@@ -64,6 +65,7 @@ final Map<String, Function> urls = {
   'genre': () => '/genre/movie/list',
   'nowPlaying': () => '/movie/now_playing',
   'movieDetails': (int id) => '/movie/$id',
+  'movieSearch': () => '/search/movie',
 };
 
 String addHostAndApiKey(String url, [String query = '']) {

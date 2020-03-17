@@ -56,18 +56,20 @@ class _TitleCardState extends State<TitleCard> {
                       height: 1.3,
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.only(top: 5, bottom: 5),
-                    child: Text(
-                      widget.data.genres[0],
-                      maxLines: 1,
-                      overflow: TextOverflow.clip,
-                      style: TextStyle(
-                        color: Colors.black26,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
+                  widget.data.genres.length != 0
+                      ? Container(
+                          margin: EdgeInsets.only(top: 5, bottom: 5),
+                          child: Text(
+                            widget.data.genres[0],
+                            maxLines: 1,
+                            overflow: TextOverflow.clip,
+                            style: TextStyle(
+                              color: Colors.black26,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        )
+                      : Container(),
                   Ratings(
                     rating: widget.data.rating,
                   ),

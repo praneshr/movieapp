@@ -67,7 +67,6 @@ class _MovieDetailsState extends State<MovieDetails> {
     List<Widget> similarMoviesCard = [];
     if (!isMovieDetailsLoading) {
       details.similar.forEach((movie) {
-        print(widget.onTap);
         similarMoviesCard.add(
           Column(
             children: <Widget>[

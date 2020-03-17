@@ -4,11 +4,7 @@ import 'package:myapp/screens/search.dart';
 import 'package:myapp/screens/movie.dart';
 import 'package:myapp/screens/tv.dart';
 
-void main() => runApp(
-      MyApp(
-        targetIndex: 0,
-      ),
-    );
+void main() => runApp(MyApp(targetIndex: 0));
 
 class DisableOverscroll extends ScrollBehavior {
   @override
@@ -65,8 +61,8 @@ class AppScaffold extends StatefulWidget {
 
 class _AppScaffoldState extends State<AppScaffold> {
   int navigationIndex = 0;
-  dynamic _currentView;
-  Map<String, Object> _state = {};
+  dynamic currentView;
+  Map<String, Object> state = {};
   Map<int, Function> _screenFactories = {
     0: (Map<String, Object> state, Function updateState) =>
         Movie(state: state, updateState: updateState),
@@ -80,7 +76,7 @@ class _AppScaffoldState extends State<AppScaffold> {
 
   void updateGlobalState(String key, Object value) {
     setState(() {
-      _state[key] = value;
+      state[key] = value;
     });
   }
 
@@ -90,26 +86,19 @@ class _AppScaffoldState extends State<AppScaffold> {
     });
   }
 
-  void onSearch() {
-    print('Printed search');
-  }
-
   getMainView() {
-    this._currentView = this._screenFactories[this.navigationIndex](
-        this._state, this.updateGlobalState);
-    return this._currentView;
+    this.currentView = this._screenFactories[this.navigationIndex](
+        this.state, this.updateGlobalState);
+    return this.currentView;
   }
 
   Future<Null> refresh() async {
-    print('refersh called');
     return null;
   }
 
   @override
   Widget build(BuildContext context) {
-    print(widget.targetIndex);
     return Scaffold(
-      // appBar: appBar(this.navigationIndex, this.onSearch),
       body: SingleChildScrollView(
         child: RefreshIndicator(
           child: Container(
