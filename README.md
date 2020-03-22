@@ -1,6 +1,8 @@
 # Movie App
 
-Android app built using Flutter.
+Movie App is an Android app built with Flutter. This is an experimental app built to test the ability of Flutter.
+
+![Poster](https://i.ibb.co/y6Tc6SC/poster.png)
 
 ## Running
 
@@ -9,6 +11,6 @@ pub get
 flutter run
 ```
 
-## License 
+## License
 
 MIT
